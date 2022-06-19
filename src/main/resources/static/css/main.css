@@ -1,0 +1,55 @@
+.nav-item {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.book-hadline {
+    text-align: center;
+}
+
+main {
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+html {
+    background-image: url("/img/background.svg");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.white_text {
+    color: whitesmoke;
+}
+
+.book-input {
+    outline: none;
+    border: 1px solid black;
+    height: 30px;
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.books-list {
+    margin-top: 40px !important;
+    padding: 40px;
+}
+
+.books-input-container {
+    text-align: center;
+}
+
+.book-button {
+    height: 40px !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

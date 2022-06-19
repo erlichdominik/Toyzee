@@ -53,3 +53,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.author-card-book {
+    width: 50%;
+}

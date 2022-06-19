@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface BookTabService {
     List<Book> getBooks();
     BookDTO getBookById(Long id);
+    BookDTO getBookWithAutorsById(Long id);
     List<BookDTO> getBooksDTOS();
 }

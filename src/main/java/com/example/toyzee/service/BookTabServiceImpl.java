@@ -38,6 +38,23 @@ public class BookTabServiceImpl implements BookTabService{
                 .name(book.getProduct().getName())
                 .build();
     }
+
+    @Override
+    public BookDTO getBookWithAutorsById(Long id) {
+        Optional<Book> byId = bookRepository.findById(id);
+        if (byId.isEmpty()) return null;
+        Book book = byId.get();
+        return BookDTO.builder()
+                .id(book.getId())
+                .description(book.getDescription())
+                .price(book.getProduct().getPrice())
+                .publishedDate(book.getProduct().getPublishedDate())
+                .quantity(book.getProduct().getQuantity())
+                .name(book.getProduct().getName())
+                .authors(AuthorDTO.convertFromAuthorsSet(book.getAuthors()))
+                .build();
+    }
+
     @Override
     public List<BookDTO> getBooksDTOS() {
         List<Book> books = bookRepository.findAll();

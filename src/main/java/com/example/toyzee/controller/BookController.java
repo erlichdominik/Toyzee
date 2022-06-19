@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -18,7 +19,14 @@ public class BookController {
     public String getBooks(Model model) {
         List<BookDTO> booksDTOS = bookTabService.getBooksDTOS();
         model.addAttribute("books", booksDTOS);
-        return "test";
+        return "main";
+    }
+
+    @GetMapping("/books/{id}")
+    public String getBookDetailsById(Model model, @PathVariable Long id) {
+        BookDTO bookById = bookTabService.getBookWithAutorsById(id);
+        model.addAttribute("book", bookById);
+        return "bookview";
     }
 
 }

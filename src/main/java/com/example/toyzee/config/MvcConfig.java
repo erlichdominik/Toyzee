@@ -8,6 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/books").setViewName("test");
+        registry.addViewController("/books").setViewName("main");
+        registry.addViewController("/books/{id}").setViewName("bookview");
+        registry.addViewController("/authors/{id}").setViewName("authorview");
     }
 }

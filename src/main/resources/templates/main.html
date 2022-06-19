@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link th:href="@{/css/material-components-web.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" th:src="@{/js/actions.js}"></script>
+</head>
+
+<body>
+<header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <span class="mdc-top-app-bar__title">Toyzee</span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <a class="mdc-top-app-bar__title nav-item" href="#">Home</a>
+            <a class="mdc-top-app-bar__title nav-item" href="/books">Books</a>
+            <a class="mdc-top-app-bar__title nav-item" href="#">School</a>
+            <a class="mdc-top-app-bar__title nav-item" href="#">Toys</a>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Shopping Cart">
+                shopping_cart
+            </button>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert
+            </button>
+        </section>
+    </div>
+</header>
+<div class="container">
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <h1 class="mdc-typography--headline3 book-hadline white_text">"So many books, so little
+                        time..."</h1>
+                </div>
+            </div>
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+                <div class="books-input-container mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--align-middle">
+                    <input class="book-input" type="text" placeholder="Search for a book...">
+                    <button class="mdc-button--outlined book-button">SEARCH</button>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+                </div>
+            </div>
+            <div class="mdc-layout-grid__inner books-list">
+                <div class="mdc-layout-grid__cell--span-4 mdc-layout-grid__cell" th:each="book : ${books}">
+                    <div class="mdc-card">
+                        <div class="mdc-typography--subtitle1" th:text="${book.name}"></div>
+                        <div class="mdc-typography--body2" th:text="${book.description}"></div>
+                        <div class="mdc-typography--body2" th:text="${book.price} + 'PLN'"></div>
+                        <button th:onclick="'onBookDetailsClicked('+${book.id}+')'" class="mdc-button">DETAILS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</div>
+</body>
+
+</html>
